@@ -9,8 +9,8 @@ const isPublicRoute = createRouteMatcher([
 ]);
 
 const isIgnoredRoute = createRouteMatcher([
-  '/api/webhook/clerk',
-  '/api/webhook/stripe',
+  '/api/webhooks/clerk',
+  '/api/webhooks/stripe',
   '/api/uploadthing'
 ]);
 
