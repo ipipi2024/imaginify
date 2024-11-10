@@ -6,12 +6,12 @@ dotenv.config({ path: '../.env.local' });
 
 // Replace these details with the data for the user you'd like to seed
 const seedUser = {
-  clerkId: 'clerk_unique_id',
-  email: 'user@example.com',
-  username: 'user123',
-  firstName: 'John',
-  lastName: 'Doe',
-  photo: 'https://example.com/photo.jpg',
+  clerkId: 'clerk_unique_id_2',
+  email: 'user2@example.com',
+  username: 'user125',
+  firstName: 'Sam',
+  lastName: 'Doer',
+  photo: 'https://example1.com/photo.jpg',
 };
 
 async function seed() {
@@ -20,7 +20,7 @@ async function seed() {
     await mongoose.connect(process.env.MONGODB_URI || '');
 
     // Clear existing users to avoid duplicate seed entries
-    await User.deleteMany({});
+    // await User.deleteMany({});
 
     // Seed the user
     const user = new User(seedUser);
