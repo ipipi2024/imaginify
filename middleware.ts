@@ -1,18 +1,16 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
 // Define public and ignored routes
 const isPublicRoute = createRouteMatcher([
-  '/',
-  '/sign-in(.*)',
-  '/sign-up(.*)',
-  '/events/:id'
+  "/",
+  "/sign-in(.*)",
+  "/sign-up(.*)",
+  "/events/:id",
+  "/api/webhooks/clerk",
+  "/api/webhooks/stripe",
 ]);
 
-const isIgnoredRoute = createRouteMatcher([
-  '/api/webhooks/clerk',
-  '/api/webhooks/stripe',
-  '/api/uploadthing'
-]);
+const isIgnoredRoute = createRouteMatcher(["/api/uploadthing"]);
 
 export default clerkMiddleware(async (auth, request) => {
   if (isIgnoredRoute(request)) {
@@ -28,7 +26,7 @@ export default clerkMiddleware(async (auth, request) => {
 
 export const config = {
   matcher: [
-    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
-    '/(api|trpc)(.*)',
+    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    "/(api|trpc)(.*)",
   ],
 };
