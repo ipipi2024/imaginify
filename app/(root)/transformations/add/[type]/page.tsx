@@ -7,8 +7,9 @@ import { getUserById } from "@/lib/actions/user.actions";
 import { redirect } from "next/navigation";
 
 const AddTransformationTypePage = async ({
-  params: { type },
+  params,
 }: SearchParamProps) => {
+  const {type} = await params;
   const { userId } = await auth();
   const transformation = transformationTypes[type];
 
