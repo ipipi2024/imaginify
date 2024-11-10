@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable prefer-spread */
+
 
 import mongoose, { Mongoose } from 'mongoose';
 
